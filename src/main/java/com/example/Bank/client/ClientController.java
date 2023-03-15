@@ -1,10 +1,7 @@
 package com.example.Bank.client;
 
-import com.fasterxml.jackson.databind.annotation.JsonAppend;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -22,6 +19,16 @@ public class ClientController {
     @GetMapping()
     public List<Client> getClients() {
         return clientService.getClients();
+    }
+
+    @PostMapping
+    public void addClient(@RequestBody Client client) {
+        clientService.addNewClient(client);
+    }
+
+    @DeleteMapping(path = "{clientId}")
+    public void removeClient(@PathVariable("clientId") Long clientId) {
+        clientService.removeClient(clientId);
     }
 
 }
