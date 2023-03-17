@@ -88,6 +88,7 @@ public class Client {
                 ", name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
                 ", accountNumber=" + accountNumber +
+                ", balance=" + balance +
                 '}';
     }
 }

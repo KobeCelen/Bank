@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
-@Service  // kan ook @Component gebruiken maar Service is specifieker
+@Service  // you can use @Component but the @Service is more specific
 public class ClientService {
 
     private final ClientRepository clientRepository;
@@ -28,8 +28,7 @@ public class ClientService {
     }
 
     public void removeClient(Long clientId) {
-        boolean exists = clientRepository.existsById(clientId);
-        if (!exists) {
+        if (!clientRepository.existsById(clientId)) {
             throw new IllegalStateException("client with id " + clientId + " does not exists");
         }
         clientRepository.deleteById(clientId);
