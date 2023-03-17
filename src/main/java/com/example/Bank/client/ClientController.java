@@ -40,4 +40,9 @@ public class ClientController {
     public void depositMoney(@PathVariable Long clientId, @PathVariable double amount) {
         clientService.depositMoney(clientId, amount);
     }
+
+    @PutMapping(path = "{clientId}/withdraw/{amount}")
+    public void withdrawMoney(@PathVariable Long clientId, @PathVariable double amount) {
+        clientService.withdrawMoney(clientId, amount);
+    }
 }

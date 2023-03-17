@@ -43,6 +43,16 @@ public class ClientService {
         if (amount <= 0.0) {
             throw new IllegalStateException("amount has to be greater than 0");
         }
-        clientRepository.updateBalanceByClientId(clientId,amount);
+        clientRepository.addMoneyByClientId(clientId,amount);
+    }
+
+    public void withdrawMoney(Long clientId, double amount) {
+        if (amount <= 0.0) {
+            throw new IllegalStateException("amount has to be greater than 0");
+        }
+        if (clientRepository.findBalanceByClientId(clientId) < amount) {
+            throw new IllegalStateException("Not enough money in the account");
+        }
+        clientRepository.withdrawMoneyByClientId(clientId,amount);
     }
 }

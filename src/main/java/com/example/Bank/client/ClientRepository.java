@@ -20,5 +20,10 @@ public interface ClientRepository extends JpaRepository<Client, Long> {
     @Transactional
     @Modifying(clearAutomatically = true)
     @Query("UPDATE Client SET balance = balance + ?2 WHERE clientId = ?1")
-    void updateBalanceByClientId(Long cliendId, double amount);
+    void addMoneyByClientId(Long cliendId, double amount);
+
+    @Transactional
+    @Modifying(clearAutomatically = true)
+    @Query("UPDATE Client SET balance = balance - ?2 WHERE clientId = ?1")
+    void withdrawMoneyByClientId(Long clientId, double amount);
 }
