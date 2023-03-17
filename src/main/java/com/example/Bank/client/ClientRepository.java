@@ -11,4 +11,8 @@ public interface ClientRepository extends JpaRepository<Client, Long> {
 
     @Query("SELECT client FROM Client client WHERE client.accountNumber = ?1")
     Optional<Client> findClientByAccountNumber(Long accountnumber);
+
+    @Query("SELECT balance FROM Client WHERE clientId = ?1")
+    double findBalanceByClientId(Long clientId);
+
 }

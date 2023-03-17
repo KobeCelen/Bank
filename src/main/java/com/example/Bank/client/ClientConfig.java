@@ -13,8 +13,8 @@ public class ClientConfig {
     @Bean
     CommandLineRunner commandLineRunner(ClientRepository clientRepository) {
         return args -> {
-            Client kobe = new Client("Kobe","Celen",222L);
-            Client alex = new Client("Alex","Celen",555L);
+            Client kobe = new Client("Kobe","Celen",222L,1000);
+            Client alex = new Client("Alex","Celen",555L,2222);
 
             clientRepository.saveAll(List.of(kobe,alex));
         };

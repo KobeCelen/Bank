@@ -20,22 +20,25 @@ public class Client {
     private String name;
     private String surname;
     private Long accountNumber;
+    private double balance;
 
 
     public Client() {
     }
 
-    public Client(Long clientId, String name, String surname, Long accountNumber) {
+    public Client(Long clientId, String name, String surname, Long accountNumber, double balance) {
         this.clientId = clientId;
         this.name = name;
         this.surname = surname;
         this.accountNumber = accountNumber;
+        this.balance = balance;
     }
 
-    public Client(String name, String surname, Long accountNumber) {
+    public Client(String name, String surname, Long accountNumber, double balance) {
         this.name = name;
         this.surname = surname;
         this.accountNumber = accountNumber;
+        this.balance = balance;
     }
 
     public Long getClientId() {
@@ -68,6 +71,14 @@ public class Client {
 
     public void setAccountNumber(Long accountNumber) {
         this.accountNumber = accountNumber;
+    }
+
+    public double getBalance() {
+        return balance;
+    }
+
+    public void setBalance(double balance) {
+        this.balance = balance;
     }
 
     @Override

@@ -35,4 +35,7 @@ public class ClientService {
         clientRepository.deleteById(clientId);
     }
 
+    public double getBalance(Long clientId) {
+        return clientRepository.findBalanceByClientId(clientId);
+    }
 }

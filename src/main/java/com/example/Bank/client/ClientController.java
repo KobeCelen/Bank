@@ -31,4 +31,9 @@ public class ClientController {
         clientService.removeClient(clientId);
     }
 
+    @GetMapping(path = "{clientId}/balance")
+    public double getBalance(@PathVariable("clientId") Long clientId) {
+        return clientService.getBalance(clientId);
+    }
+
 }
