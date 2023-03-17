@@ -38,4 +38,11 @@ public class ClientService {
     public double getBalance(Long clientId) {
         return clientRepository.findBalanceByClientId(clientId);
     }
+
+    public void depositMoney(Long clientId, double amount) {
+        if (amount <= 0.0) {
+            throw new IllegalStateException("amount has to be greater than 0");
+        }
+        clientRepository.updateBalanceByClientId(clientId,amount);
+    }
 }

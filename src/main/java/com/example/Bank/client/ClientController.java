@@ -36,4 +36,8 @@ public class ClientController {
         return clientService.getBalance(clientId);
     }
 
+    @PutMapping(path = "{clientId}/deposit/{amount}")
+    public void depositMoney(@PathVariable Long clientId, @PathVariable double amount) {
+        clientService.depositMoney(clientId, amount);
+    }
 }
