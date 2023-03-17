@@ -55,4 +55,18 @@ public class ClientService {
         }
         clientRepository.withdrawMoneyByClientId(clientId,amount);
     }
+
+    public void transferMoney(Long clientId, Long destId, double amount) {
+        if (amount <= 0.0) {
+            throw new IllegalStateException("amount has to be greater than 0");
+        }
+        if (clientRepository.findBalanceByClientId(clientId) < amount) {
+            throw new IllegalStateException("Not enough money in the account");
+        }
+        if (!clientRepository.existsById(destId)) {
+            throw new IllegalStateException("destination clientId doesn't exist");
+        }
+        clientRepository.withdrawMoneyByClientId(clientId,amount);
+        clientRepository.addMoneyByClientId(destId,amount);
+    }
 }
